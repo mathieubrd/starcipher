@@ -43,10 +43,6 @@ class Caesar:
     def brute_force(message, dict):
         for i in range(1, 26):
             message_tmp = Caesar.decrypt(i, message)
-            known_words = 0
-            for word in message_tmp.split(' '):
-                if dict.contains(word):
-                    known_words += 1
-            if known_words / len(message_tmp.split(' ')) >= 0.6:
+            if dict.recognize(message_tmp) > 0.6:
                 return message_tmp
         return None

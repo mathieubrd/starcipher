@@ -2,7 +2,7 @@ import re
 
 # Represents a dictionnary containing a list of words.
 # Does a frequency analysis to get the frequency of each letter in the entire dictionnary.
-# When dictionnary file is set (wih the "file_path" setter), call "load" to read and execute the frequency analysis.
+# The dictionnary file is loaded and the frequency analysis is perfomed the object is created.
 class Dictionnary:
 
     def __init__(self, dict_file):
@@ -26,10 +26,13 @@ class Dictionnary:
         for letter, frequency in self._frequencies.items():
             self._frequencies[letter] = round(self._frequencies[letter] / num_letters * 100, 2)
 
-    def contains(self, word):
-        if word.lower() in self._words:
-            return True
-        return False
+    # Returns the ration of recognized words given by the message and search occurences in the dictionnary.
+    def recognize(self, message):
+        message = message.lower().split(' ')
+        recognized_words = 0
+        for word in message:
+            if word in self._words: recognized_words += 1
+        return round(recognized_words / len(message), 2)
 
     @property
     def file_path(self):
