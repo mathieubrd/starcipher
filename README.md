@@ -4,7 +4,7 @@ Starcipher supports custom dictionnaries and works with the ASCII table.
 
 This project is licensed under the terms of the MIT license.
 
-## Supported encryption algorithms
+## Supported ciphers
 - Caesar
 - Vigenère
 - Affine
