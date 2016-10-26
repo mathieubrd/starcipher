@@ -1,5 +1,5 @@
 # Starcipher
-Library written in Python to crypt and decrypt messages and crack ciphers using various encryption algorithms.
+Library written in Python to crypt, decrypt and crack messages using various ciphers.
 Starcipher supports custom dictionnaries and works with the ASCII table.
 
 This project is licensed under the terms of the MIT license.
