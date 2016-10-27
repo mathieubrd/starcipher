@@ -11,5 +11,5 @@ This project is licensed under the terms of the MIT license.
 
 ## Supported cracking methods
 - Caesar: brute-force
-- Vigenère: the Kasiski examination and the Friedman test
+- Vigenère: the Kasiski examination
 - Affine: brute-force
