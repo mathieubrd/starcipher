@@ -1,7 +1,11 @@
 import unittest
+from starcipher.dictionnary import Dictionnary
 from starcipher.affine import Affine
 
 class TestAffine(unittest.TestCase):
+
+    def setUp(self):
+        self._dictionnary = Dictionnary('tests/en.dict')
 
     def test_xgcd(self):
         self.assertEqual(Affine.xgcd(7, 3), (1, 1, -2))
@@ -33,4 +37,10 @@ class TestAffine(unittest.TestCase):
         self.assertEqual(
             Affine.decrypt(3, 12, 'HYG, RHKO KO RHY MBBKZY SKFHYL!'),
             'HEY, THIS IS THE AFFINE CIPHER!'
+        )
+
+    def test_brute_force(self):
+        self.assertEqual(
+            Affine.brute_force('GWZD ZD B GNDG RQ GWN BQQZON HZUWNA. Z WRUN ZG PZII EN HABHFNK!', self._dictionnary),
+            'THIS IS A TEST OF THE AFFINE CIPHER. I HOPE IT WILL BE CRACKED!'
         )

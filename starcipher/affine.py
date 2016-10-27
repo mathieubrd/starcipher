@@ -44,3 +44,18 @@ class Affine:
             if re.compile('[A-Z]').match(message[i]):
                 message[i] = chr((k * (ord(message[i]) - key2 - 65) % 26) + 65)
         return ''.join(message)
+
+    # Cracks the given message using the brute force method with the given dictionnary.
+    # Returns the decrypted message or None if it is not possible.
+    def brute_force(message, dict):
+        message = message.upper()
+        for a in range(26):
+            if Affine.xgcd(a, 26)[0] == 1:
+                for b in range(26):
+                    decrypted_message = Affine.decrypt(a, b, message)
+                    if dict.recognize(decrypted_message) > 0.7:
+                        return decrypted_message
+        return None
+
+if __name__ == '__main__':
+    Affine.brute_force()
